@@ -95,15 +95,15 @@ EMBY = select,DIRECT,全球手动策略,香港时延优选,日本时延优选,�
 美国时延优选 = url-test,美国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
 # --------------------------------
 # 常用软件分流
-AI = select,全球手动策略,美国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/ChatGPT.png
-TikTok = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/TikTok-02.png
-GitHub = select,全球手动策略,美国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/GitHub-02.png
-Google = select,全球手动策略,美国时延优选,香港时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Google.png
-X = select,全球手动策略,美国时延优选,香港时延优选,日本时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Twitter-02.png
-Telegram = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Telegram-01.png
-YouTube = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/YouTube.png
-Netflix = select,全球手动策略,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Netflix-02.png
-国外媒体 = select,全球手动策略,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Conflux.png
+AI = select,美国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/ChatGPT.png
+TikTok = select,美国时延优选,香港时延优选,日本时延优选,新国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/TikTok-02.png
+GitHub = select,美国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/GitHub-02.png
+Google = select,美国时延优选,香港时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Google.png
+X = select,美国时延优选,香港时延优选,日本时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Twitter-02.png
+Telegram = select,美国时延优选,香港时延优选,日本时延优选,新国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Telegram-01.png
+YouTube = select,美国时延优选,香港时延优选,日本时延优选,新国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/YouTube.png
+Netflix = select,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Netflix-02.png
+国外媒体 = select,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,手动选择,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Conflux.png
 
 # --------------------------------
 # 兜底策略后备
