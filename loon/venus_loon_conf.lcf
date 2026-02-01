@@ -1,0 +1,154 @@
+# Loon 配置文件
+# 描述：个人使用的 Loon 配置文件，可根据实际需求进行调整。
+# 日期: 2026-02-01 20:09:13
+# 作者: venus
+# App图标库: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App-Icon.json
+# Flag图标库: https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/Flag-Icon.json
+# Loon官方文档: https://nsloon.app/docs/intro
+# Loon官方教程: https://coffee-elderberry-22b.notion.site/Loon-71747252d5054551a8cd10924064899c
+# Loon第三方知识库：https://getupnote.com/share/notes/zSn1ShBmzNYISKcTgjXE5oHMrNf2/b6047d8b-621c-44af-bfa6-a28d35bcf928
+# 参考链接: https://kelee.one/Tool/Loon/Lcf/zh-CN/Loon_Auto_Select_Config_By_iKeLee.lcf
+# 可莉插件库 https://hub.kelee.one
+# sooyaaabo插件库: https://loonlab.103516.xyz/Plugin/
+
+[General]
+# IP查询模式
+ip-mode = v4-only
+# TUN IPv6配置
+ipv6-vif = off
+# DNS server
+dns-server = system,223.5.5.5,223.6.6.6,119.29.29.29,114.114.114.114
+# SNI辅助规则匹配
+sni-sniffing = true
+# 直连时丢弃STUN
+disable-stun = true
+# Wi-Fi共享开启时http服务的端口
+wifi-access-http-port = 7222
+# Wi-Fi共享开启时socks5服务的端口
+wifi-access-socks5-port = 7221
+# 是否允许Wi-Fi下共享网络
+allow-wifi-access = false
+# 是否开启对局域网中其他设备的请求进行MITM
+mitm-on-wifi-access = false
+# 节点测速时的超时秒数
+test-timeout = 5
+# 网络接口
+interface-mode = auto
+# 域名拦截行为
+domain-reject-mode = DNS
+# DNS拦截方式
+dns-reject-mode = LoopbackIP
+# UDP回落策略
+udp-fallback-mode = REJECT
+# 策略切换时关闭连接
+disconnect-on-policy-change = false
+# 直连测试URL
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+# 节点测试URL
+proxy-test-url = http://www.gstatic.com/generate_204
+# 资源解析器
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+# GeoIP数据库
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+# ASN数据库
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+# 绕过代理
+skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+# 绕过路由
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+
+[Proxy]
+
+[Remote Proxy]
+
+[Remote Filter]
+香港节点=NameRegex, FilterKey="^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+台湾节点=NameRegex, FilterKey="^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+日本节点=NameRegex, FilterKey="^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+韩国节点=NameRegex, FilterKey="^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+新国节点=NameRegex, FilterKey="^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+美国节点=NameRegex, FilterKey="^(?=.*((?i)🇺🇸|美国|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+游戏节点=NameRegex, FilterKey="^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+全球节点=NameRegex, FilterKey="^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|失联|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+手动选择 = select,全球手动策略,香港手动策略,台湾手动策略,日本手动策略,韩国手动策略,新国手动策略,美国手动策略,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Universal/Available.png
+EMBY = select,DIRECT,全球手动策略,香港时延优选,日本时延优选,美国时延优选,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/Badoo.png
+
+# 手动策略组
+香港手动策略 = select,香港节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
+台湾手动策略 = select,台湾节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Taiwan.png
+日本手动策略 = select,日本节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
+韩国手动策略 = select,韩国节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/North_Korea.png
+新国手动策略 = select,新国节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
+美国手动策略 = select,美国节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
+游戏手动策略 = select,游戏节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/GAME.png
+全球手动策略 = select,全球节点,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Global.png
+
+# --------------------------------
+# 时延优选策略组
+香港时延优选 = url-test,香港节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Hong_Kong.png
+台湾时延优选 = url-test,台湾节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Taiwan.png
+日本时延优选 = url-test,日本节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Japan.png
+韩国时延优选 = url-test,韩国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/North_Korea.png
+新国时延优选 = url-test,新国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/Singapore.png
+美国时延优选 = url-test,美国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Rounded_Rectangle/United_States.png
+# --------------------------------
+# 常用软件分流
+AI = select,全球手动策略,美国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/ChatGPT.png
+TikTok = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/TikTok-02.png
+GitHub = select,全球手动策略,美国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/GitHub-02.png
+Google = select,全球手动策略,美国时延优选,香港时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Google.png
+X = select,全球手动策略,美国时延优选,香港时延优选,日本时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Twitter-02.png
+Telegram = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Telegram-01.png
+YouTube = select,,全球手动策略,美国时延优选,香港时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/YouTube.png
+Netflix = select,全球手动策略,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Netflix-02.png
+国外媒体 = select,全球手动策略,美国时延优选,香港时延优选,台湾时延优选,日本时延优选,新国时延优选,兜底后备策略,img-url = https://raw.githubusercontent.com/sooyaaabo/IconLibrary/main/App/Conflux.png
+
+# --------------------------------
+# 兜底策略后备
+兜底后备策略 = select,香港时延优选,台湾时延优选,日本时延优选,韩国时延优选,新国时延优选,美国时延优选,手动选择,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+
+[Rule]
+# 当配置文件中没有任何有效策略组时，Loon将使用内置的PROXY策略组
+# 当配置文件中存在有效的策略组时，内置的PROXY策略组将不再允许被调用，仅可使用用户配置的策略组
+# 配置文件已自带远程GEOIP, cn, DIRECT规则，请勿在此添加
+# 请勿修改远程CN REGION规则的排序甚至删除
+FINAL, 兜底后备策略
+
+[Remote Rule]
+https://rule.kelee.one/Loon/Telegram.lsr, policy=Telegram, tag=Telegram, enabled=true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy=TikTok, tag=TikTok, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=AI, tag=AI, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=Google, tag=Google, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, policy=X, tag=X, enabled=true
+https://rule.kelee.one/Loon/YouTube.lsr, policy=YouTube, tag=YouTube, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=true
+https://kelee.one/Tool/Loon/Lsr/SpeedtestInternational.lsr, policy=全球手动策略, tag=Speedtest Intl, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, policy=Netflix, tag=Netflix, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/GlobalMedia/GlobalMedia.list, policy=国外媒体, tag=国外媒体, enabled=true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuickSearch.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/TestFlightRegionUnlock.lpx, policy=DIRECT, enabled=false
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Script-Hub.lpx, policy=兜底后备策略, enabled=true
+
+[Mitm]
+hostname=
+ca-p12=
+ca-passphrase=
+skip-server-cert-verify=false
