@@ -1,10 +1,10 @@
-#!name= RuoYi License ExpiresAt Modifier
-#!desc= 修改 RuoYi Plus 许可证 API 的 expiresAt 年份为 2029
-#!system= ios,macos
-#!homepage= https://github.com/your-username/your-repo
+#!name=RuoYi License ExpiresAt Modifier (Script)
+#!desc=通过脚本修改 expiresAt 年份为 2029
+#!author=YourName
+#!homepage=
 
 [Script]
-http-response ^https://license\.ruoyi\.plus/flm/public/client/init script-path = https://raw.githubusercontent.com/vwvve/LSQ/main/script/change-expiresat.js, requires-body = true, type = http-response
+http-response ^https://license\.ruoyi\.plus/flm/public/client/init requires-body = true, script-path = https://example.com/change-expiresat.js
 
 [MITM]
-hostname = license.ruoyi.plus
+hostname = %APPEND% license.ruoyi.plus
