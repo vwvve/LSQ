@@ -4,7 +4,7 @@
 #!homepage=
 
 [Script]
-http-response ^https://license\.ruoyi\.plus/flm/public/client/init requires-body = true, script-path = https://example.com/change-expiresat.js
+http-response ^https://license\.ruoyi\.plus/flm/public/client/init requires-body = true, script-path = https://raw.githubusercontent.com/vwvve/LSQ/refs/heads/main/script/change-expiresat.js
 
 [MITM]
 hostname = %APPEND% license.ruoyi.plus
