@@ -24,26 +24,34 @@ function readCookie() {
   return argumentCookie || storedCookie;
 }
 
-function parseMessage(data) {
+function parseSigninResponse(data) {
   if (!data) {
-    return "No response body";
+    return {
+      body: "No response body",
+      message: "No response",
+    };
   }
 
   try {
     const json = JSON.parse(data);
+    const message = json.message || json.msg || json.error || "Signin response";
 
     if (json && json.success === true && json.data && typeof json.data === "object") {
-      return formatSigninData(json.message || "签到成功", json.data);
+      return {
+        body: formatSigninData(json.data),
+        message: message,
+      };
     }
 
-    return (
-      json.message ||
-      json.msg ||
-      json.error ||
-      (typeof json.data === "string" ? json.data : JSON.stringify(json))
-    );
+    return {
+      body: typeof json.data === "string" ? json.data : JSON.stringify(json),
+      message: message,
+    };
   } catch (_) {
-    return data;
+    return {
+      body: data,
+      message: data,
+    };
   }
 }
 
@@ -55,29 +63,29 @@ function appendValue(parts, label, value, suffix) {
   parts.push(label + value + (suffix || ""));
 }
 
-function formatSigninData(message, data) {
+function formatSigninData(data) {
   const currency = data.currency_name || "积分";
-  const parts = [message];
+  const parts = [];
 
-  appendValue(parts, "今日 +", data.daily_points, " " + currency);
-  appendValue(parts, "总计 ", data.current_points, " " + currency);
-  appendValue(parts, "连续 ", data.current_streak, " 天");
-  appendValue(parts, "历史最长 ", data.longest_streak, " 天");
-  appendValue(parts, "今日累计 ", data.total_today, " " + currency);
-  appendValue(parts, "签到日期 ", data.last_signin_date, "");
+  appendValue(parts, "本次获得：", data.daily_points, " " + currency);
+  appendValue(parts, "当前余额：", data.current_points, " " + currency);
+  appendValue(parts, "连续签到：", data.current_streak, " 天");
+  appendValue(parts, "最长连续：", data.longest_streak, " 天");
+  appendValue(parts, "今日累计：", data.total_today, " " + currency);
+  appendValue(parts, "签到日期：", data.last_signin_date, "");
 
   if (data.bonus_points) {
-    appendValue(parts, "奖励 +", data.bonus_points, " " + currency);
+    appendValue(parts, "额外奖励：", data.bonus_points, " " + currency);
   }
 
   if (data.renewal && data.renewal.enabled) {
     parts.push(
-      "续期 " +
+      "续期状态：" +
         (data.renewal.affordable ? "可兑换" : "还差 " + Math.max(data.renewal.cost - data.current_points, 0) + " " + currency)
     );
   }
 
-  return parts.join(" | ");
+  return parts.join("\n");
 }
 
 const cookie = readCookie();
@@ -112,13 +120,15 @@ if (!cookie || cookie.indexOf("REPLACE_ME") !== -1) {
     }
 
     const status = response ? response.status || response.statusCode : "no status";
-    const message = parseMessage(data || "");
+    const result = parseSigninResponse(data || "");
     const code = Number(status);
     const ok = code >= 200 && code < 300;
     const expired =
       code === 401 ||
-      message.indexOf("UNAUTHORIZED") !== -1 ||
-      message.indexOf("登录状态已失效") !== -1;
+      result.message.indexOf("UNAUTHORIZED") !== -1 ||
+      result.body.indexOf("UNAUTHORIZED") !== -1 ||
+      result.message.indexOf("登录状态已失效") !== -1 ||
+      result.body.indexOf("登录状态已失效") !== -1;
 
     if (expired) {
       doneWithNotification(
@@ -128,9 +138,6 @@ if (!cookie || cookie.indexOf("REPLACE_ME") !== -1) {
       return;
     }
 
-    doneWithNotification(
-      ok ? "Signin finished: " + status : "Signin failed: " + status,
-      message
-    );
+    doneWithNotification(ok ? result.message : "Signin failed: " + status, result.body);
   });
 }
