@@ -1,0 +1,10 @@
+#!name=Embymb Signin
+#!desc=Capture cookie from /api/v1/users/me and run scheduled signin.
+#!system=ios
+
+[Script]
+embymb_cookie = type=http-response, pattern=^https:\/\/embymb\.ichinosekotomi\.com\/api\/v1\/users\/me(?:\?.*)?$, requires-body=true, timeout=10, script-path=https://raw.githubusercontent.com/vwvve/LSQ/refs/heads/main/script/embymb_cookie.js
+embymb_signin = type=cron, cronexp="0 9 * * *", wake-system=true, timeout=30, script-path=https://raw.githubusercontent.com/vwvve/LSQ/refs/heads/main/script/embymb_signin.js
+
+[MITM]
+hostname = %APPEND% embymb.ichinosekotomi.com
