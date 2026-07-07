@@ -31,6 +31,11 @@ function parseMessage(data) {
 
   try {
     const json = JSON.parse(data);
+
+    if (json && json.success === true && json.data && typeof json.data === "object") {
+      return formatSigninData(json.message || "签到成功", json.data);
+    }
+
     return (
       json.message ||
       json.msg ||
@@ -40,6 +45,39 @@ function parseMessage(data) {
   } catch (_) {
     return data;
   }
+}
+
+function appendValue(parts, label, value, suffix) {
+  if (value === null || typeof value === "undefined" || value === "") {
+    return;
+  }
+
+  parts.push(label + value + (suffix || ""));
+}
+
+function formatSigninData(message, data) {
+  const currency = data.currency_name || "积分";
+  const parts = [message];
+
+  appendValue(parts, "今日 +", data.daily_points, " " + currency);
+  appendValue(parts, "总计 ", data.current_points, " " + currency);
+  appendValue(parts, "连续 ", data.current_streak, " 天");
+  appendValue(parts, "历史最长 ", data.longest_streak, " 天");
+  appendValue(parts, "今日累计 ", data.total_today, " " + currency);
+  appendValue(parts, "签到日期 ", data.last_signin_date, "");
+
+  if (data.bonus_points) {
+    appendValue(parts, "奖励 +", data.bonus_points, " " + currency);
+  }
+
+  if (data.renewal && data.renewal.enabled) {
+    parts.push(
+      "续期 " +
+        (data.renewal.affordable ? "可兑换" : "还差 " + Math.max(data.renewal.cost - data.current_points, 0) + " " + currency)
+    );
+  }
+
+  return parts.join(" | ");
 }
 
 const cookie = readCookie();
