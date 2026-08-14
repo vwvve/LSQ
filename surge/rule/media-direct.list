@@ -1,8 +1,3 @@
-#!name=Media Direct Rules
-#!desc=玩偶、木偶、蜡笔、闪电、至臻、多多、欧哥、二小、虎斑/小斑直连分流规则
-#!system=ios
-
-[Rule]
 # > 玩偶
 DOMAIN,woggpan.xxooo.cf,DIRECT
 DOMAIN,woggpan.888484.xyz,DIRECT
