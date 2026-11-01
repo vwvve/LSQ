@@ -8,3 +8,4 @@
 ## Surge Rules
 
 - Media Direct Rules: https://raw.githubusercontent.com/vwvve/LSQ/refs/heads/main/surge/rule/media-direct.list
+- JAV Direct Rules: https://raw.githubusercontent.com/vwvve/LSQ/refs/heads/main/surge/rule/jav-direct.list
