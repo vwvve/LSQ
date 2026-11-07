@@ -4,6 +4,10 @@ DOMAIN-SUFFIX,mushroomtrack.com,DIRECT
 DOMAIN-SUFFIX,missav.media,DIRECT
 DOMAIN-SUFFIX,missav.ws,DIRECT
 DOMAIN-SUFFIX,missav.fans,DIRECT
+DOMAIN-SUFFIX,missav.ai,DIRECT
+DOMAIN-SUFFIX,memojav.com,DIRECT
+DOMAIN-SUFFIX,javp.cc,DIRECT
+DOMAIN-SUFFIX,javp.cc.cd,DIRECT
 DOMAIN-KEYWORD,surrit,DIRECT
 DOMAIN-SUFFIX,mrstcdn.store,DIRECT
 DOMAIN-SUFFIX,dmm.co.jp,DIRECT
@@ -25,6 +29,9 @@ DOMAIN-SUFFIX,ahcdn.com,DIRECT
 DOMAIN-SUFFIX,wowxxx.to,DIRECT
 DOMAIN-SUFFIX,fpvcdn.com,DIRECT
 
+# > 黄果
+DOMAIN-SUFFIX,huangguoai.com,DIRECT
+
 # > stripchat
 DOMAIN-SUFFIX,stripchat.com,DIRECT
 DOMAIN-SUFFIX,stripchat.global,DIRECT
@@ -33,3 +40,25 @@ DOMAIN-SUFFIX,sacfedge.com,DIRECT
 DOMAIN-SUFFIX,doppiocdn.org,DIRECT
 DOMAIN-SUFFIX,doppiocdn.com,DIRECT
 DOMAIN-SUFFIX,growcdnssedge.com,DIRECT
+
+# > JavDB 核心（必须代理 非日本节点）
+DOMAIN-SUFFIX,jdforrepam.com,DIRECT
+DOMAIN-SUFFIX,c0.jdbstatic.com,DIRECT
+DOMAIN-SUFFIX,tp.spfcas.com,DIRECT
+
+# > panda 直播
+DOMAIN-SUFFIX,5721004.xyz,PROXY
+DOMAIN-SUFFIX,515355.xyz,PROXY
+DOMAIN-SUFFIX,pandalive.co.kr,PROXY
+
+# > 推特
+DOMAIN-SUFFIX,pektino.com,PROXY
+
+# > hanime1
+DOMAIN-SUFFIX,hanime1.me,PROXY
+DOMAIN-SUFFIX,hembed.com,PROXY
+DOMAIN-SUFFIX,iili.io,PROXY
+
+# > Eporner
+DOMAIN-SUFFIX,eporner.com,Proxy
+DOMAIN-KEYWORD,eporner,Proxy
